@@ -3,7 +3,7 @@ export const getAllPizzas=()=>async dispatch=>{
     dispatch({type:"GET_PIZZAS_REQUEST"})
 
     try{
-        const response = await axios.get('/api/pizzas/getallpizzas')
+        const response = await axios.get('https://pizziepiebackend.onrender.com/api/pizzas/getallpizzas')
         console.log(response)
         dispatch({type:"GET_PIZZAS_SUCCESS", payload: response.data})
     } catch(error)
@@ -15,7 +15,7 @@ export const addPizza=(pizza)=>async dispatch=>{
     dispatch({type:"ADD_PIZZAS_REQUEST"})
 
     try{
-        const response = await axios.post('/api/pizzas/addpizza',{pizza})
+        const response = await axios.post('https://pizziepiebackend.onrender.com/api/pizzas/addpizza',{pizza})
         dispatch({type:"ADD_PIZZAS_SUCCESS", payload: response.data})
     } catch(error)
     {
@@ -26,7 +26,7 @@ export const getPizzaById=(pizzaId)=>async dispatch=>{
     dispatch({type:"GET_PIZZABYID_REQUEST"})
 
     try{
-        const response = await axios.post('/api/pizzas/getpizzabyid',{pizzaId})
+        const response = await axios.post('https://pizziepiebackend.onrender.com/api/pizzas/getpizzabyid',{pizzaId})
         dispatch({type:"GET_PIZZABYID_SUCCESS", payload: response.data})
     } catch(error)
     {
@@ -37,7 +37,7 @@ export const updatePizza=(updatedpizza)=>async dispatch=>{
     dispatch({type:"UPDATE_PIZZABYID_REQUEST"})
 
     try{
-        const response = await axios.post('/api/pizzas/updatepizza',{updatedpizza})
+        const response = await axios.post('https://pizziepiebackend.onrender.com/api/pizzas/updatepizza',{updatedpizza})
         dispatch({type:"UPDATE_PIZZABYID_SUCCESS", payload: response.data})
         window.location.href='/admin/pizzalist'
     } catch(error)
@@ -47,7 +47,7 @@ export const updatePizza=(updatedpizza)=>async dispatch=>{
 }
 export const deletePizza = (pizzaId) => async (dispatch) => {
     try {
-      await axios.post("/api/pizzas/deletepizza", { pizzaId });
+      await axios.post("https://pizziepiebackend.onrender.com/api/pizzas/deletepizza", { pizzaId });
       alert("Pizza Deleted Succss!", "success");
       window.location.href = "/admin/pizzalist";
       // console.log(res);
